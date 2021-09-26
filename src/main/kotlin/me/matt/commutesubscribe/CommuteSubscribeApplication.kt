@@ -17,11 +17,10 @@ class CommuteSubscribeApplication {
     fun twitterStream(statusListener: StatusListener?): TwitterStream? {
         val cb: ConfigurationBuilder = ConfigurationBuilder()
         cb.setDebugEnabled(true)
-            .setOAuthConsumerKey("kb8kYypQqWr3OHJw0xf84MGCV")
-            .setOAuthConsumerSecret("SqmGdBkJpetRvW4STXXgU3HxHbpNA9ElnlStpplrTTMsXHyDaB")
-            .setOAuthAccessToken("2623678366-AUZMvvY2ruyM2CfMm8sWsum7QgXyYi965XcJBV9")
-            .setOAuthAccessTokenSecret("wwgN9fvu2vMhwey8eBDFDHhxRo28yt76hzrkUO63B69M7")
-
+            .setOAuthConsumerKey(properties.OAuthConsumerKey)
+            .setOAuthConsumerSecret(properties.OAuthConsumerSecret)
+            .setOAuthAccessToken(properties.OAuthAccessToken)
+            .setOAuthAccessTokenSecret(properties.OAuthAccessTokenSecret)
         val twitterStream: TwitterStream = TwitterStreamFactory(cb.build()).instance
         twitterStream.addListener(statusListener)
 
