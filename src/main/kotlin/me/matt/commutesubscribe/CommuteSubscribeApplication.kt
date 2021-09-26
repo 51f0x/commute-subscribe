@@ -14,7 +14,7 @@ class CommuteSubscribeApplication {
         return myStreamListener()
     }
     @Bean
-    fun twitterStream(statusListener: StatusListener?): TwitterStream? {
+    fun twitterStream(statusListener: StatusListener?, TwitterConfigurationProperties properties: TwitterConfigurationProperties): TwitterStream? {
         val cb: ConfigurationBuilder = ConfigurationBuilder()
         cb.setDebugEnabled(true)
             .setOAuthConsumerKey(properties.OAuthConsumerKey)
